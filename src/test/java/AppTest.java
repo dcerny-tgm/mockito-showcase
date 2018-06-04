@@ -4,9 +4,20 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import java.util.List;
+import static org.mockito.Mockito.*;
+
 public class AppTest {
-    @Test public void testAppHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull("app should have a greeting", classUnderTest.getGreeting());
-    }
+	@Test
+	public void testMockito() {
+		List mockedList = mock(List.class);
+
+		// using mock object
+		mockedList.add("one");
+		mockedList.clear();
+
+		// verification
+		verify(mockedList).add("one");
+		verify(mockedList).clear();
+	}
 }
